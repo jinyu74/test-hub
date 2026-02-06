@@ -1,0 +1,20 @@
+# Sparse Checkout 프로파일: sftp-monitor v0.0.1
+#
+# decg-go-monorepo만 사용하는 SFTP 모니터 서비스
+# apps/wails-boilerplate, apps/link-server는 제외
+
+service: sftp-monitor
+version: v0.0.1
+
+# decg-go-monorepo만 초기화 (FE, BE는 생략됨)
+submodules:
+  decg-go-monorepo:
+    exclude:                          # exclude만 있으면 전체에서 제외
+      - apps/wails-boilerplate
+      - apps/link-server
+
+  # decg-fe-monorepo, decg-be-monorepo: (생략 → 초기화 안 함)
+
+options:
+  shallow_clone: true
+  auto_branch: true

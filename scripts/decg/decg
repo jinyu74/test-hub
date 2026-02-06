@@ -1,0 +1,6 @@
+#!/bin/bash
+# decg CLI wrapper script
+# 이 파일을 /usr/local/bin/decg 또는 PATH에 등록하여 사용
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+python3 "${SCRIPT_DIR}/cli.py" "$@"

@@ -1,0 +1,27 @@
+# Sparse Checkout 프로파일: deep-ecg-analysis v0.0.1
+#
+# FE와 BE만 사용하는 ECG 분석 서비스
+# decg-go-monorepo는 사용하지 않음
+
+service: deep-ecg-analysis
+version: v0.0.1
+
+# 사용할 submodule만 정의 (없는 것은 초기화 안 함)
+submodules:
+  decg-fe-monorepo:
+    include:                          # include가 있으면 지정 경로만 가져옴
+      - apps/deep-ecg-analysis
+      - packages/ui-components
+      - packages/api-client
+
+  decg-be-monorepo:
+    include:
+      - apps/deep-ecg-analysis
+      - packages/common
+      - packages/auth
+
+  # decg-go-monorepo: (생략 → 초기화 안 함)
+
+options:
+  shallow_clone: true
+  auto_branch: true
